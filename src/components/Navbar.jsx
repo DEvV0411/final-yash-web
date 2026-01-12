@@ -10,17 +10,14 @@ const Navbar = ({ onJoinClick }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
     { name: "Home", path: "/", sectionId: null },
     { name: "The Logic", path: "/", sectionId: "the-logic" },
-    { name: "Programs", path: "/", sectionId: "programs" },
-    { name: "Results", path: "/", sectionId: "results" },
     { name: "Curriculum", path: "/", sectionId: "curriculum" },
-    { name: "Community", path: "/", sectionId: "community" },
     { name: "About Us", path: "/about", sectionId: null },
   ];
 
@@ -30,12 +27,12 @@ const Navbar = ({ onJoinClick }) => {
     // If it's a section link
     if (link.sectionId) {
       e.preventDefault();
-      
+
       // If we are already on home page, scroll directly
       if (location.pathname === "/") {
         const element = document.getElementById(link.sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
           setMobileMenuOpen(false);
         }
       } else {
@@ -43,7 +40,7 @@ const Navbar = ({ onJoinClick }) => {
         setMobileMenuOpen(false);
         navigate("/", { state: { scrollTo: link.sectionId } });
       }
-    } 
+    }
     // If it's a page link (like About), let normal Link behavior happen
     else {
       setMobileMenuOpen(false);
@@ -51,7 +48,13 @@ const Navbar = ({ onJoinClick }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-transparent'}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-black/80 backdrop-blur-md shadow-lg shadow-cyan-500/5"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -75,9 +78,10 @@ const Navbar = ({ onJoinClick }) => {
                 onClick={(e) => handleNavClick(e, link)}
                 className={`text-sm font-medium transition-all relative group ${
                   location.pathname === link.path && !link.sectionId
-                    ? 'text-cyan-400'
-                    : 'text-gray-300 hover:text-cyan-400'
-                }`}>
+                    ? "text-cyan-400"
+                    : "text-gray-300 hover:text-cyan-400"
+                }`}
+              >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all group-hover:w-full"></span>
               </Link>
@@ -86,9 +90,7 @@ const Navbar = ({ onJoinClick }) => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button
-              onClick={onJoinClick}
-              className="btn btn-primary">
+            <button onClick={onJoinClick} className="btn btn-primary">
               Join Now
             </button>
           </div>
@@ -96,12 +98,28 @@ const Navbar = ({ onJoinClick }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-white p-2">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            className="lg:hidden text-white p-2"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -116,13 +134,18 @@ const Navbar = ({ onJoinClick }) => {
                   key={link.name}
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  className="text-gray-300 hover:text-cyan-400 transition-colors"
+                >
                   {link.name}
                 </Link>
               ))}
               <button
-                onClick={() => { onJoinClick(); setMobileMenuOpen(false); }}
-                className="btn btn-primary w-full">
+                onClick={() => {
+                  onJoinClick();
+                  setMobileMenuOpen(false);
+                }}
+                className="btn btn-primary w-full"
+              >
                 Join Now
               </button>
             </div>
@@ -134,4 +157,3 @@ const Navbar = ({ onJoinClick }) => {
 };
 
 export default Navbar;
-
