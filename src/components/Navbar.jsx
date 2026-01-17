@@ -50,8 +50,8 @@ const Navbar = ({ onJoinClick }) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/80 backdrop-blur-md shadow-lg shadow-cyan-500/5"
+        scrolled || mobileMenuOpen
+          ? "bg-black/90 backdrop-blur-md shadow-lg shadow-cyan-500/5"
           : "bg-transparent"
       }`}
     >
@@ -127,14 +127,14 @@ const Navbar = ({ onJoinClick }) => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-800">
+          <div className="lg:hidden py-4 border-t border-gray-800 bg-black/90 backdrop-blur-md absolute left-0 right-0 px-4 shadow-xl">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  className="text-gray-300 hover:text-cyan-400 transition-colors py-2 border-b border-gray-800"
                 >
                   {link.name}
                 </Link>

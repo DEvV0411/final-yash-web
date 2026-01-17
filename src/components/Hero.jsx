@@ -190,7 +190,7 @@ const Hero = ({ onJoinClick }) => {
           </div>
 
           {/* RIGHT COLUMN: Visual */}
-          <div className="relative hidden lg:block h-full min-h-[600px] flex items-center justify-center pl-10">
+          <div className="relative block h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center mt-12 lg:mt-0 lg:pl-10">
              {/* Main Chart Card */}
              <motion.div
                initial={{ opacity: 0, x: 50, rotateY: 10 }}
@@ -209,13 +209,13 @@ const Hero = ({ onJoinClick }) => {
                 <motion.div 
                    animate={{ y: [0, -12, 0] }}
                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                   className="absolute top-8 -right-8 glass-card p-4 rounded-xl border-l-4 border-l-green-400 bg-black/80 backdrop-blur-xl shadow-2xl min-w-[180px]"
+                   className="absolute top-4 right-4 lg:top-8 lg:-right-8 glass-card p-4 rounded-xl border-l-4 border-l-green-400 bg-black/80 backdrop-blur-xl shadow-2xl min-w-[140px] lg:min-w-[180px]"
                 >
                    <div className="flex justify-between items-start mb-1">
-                      <span className="text-gray-400 text-xs font-bold uppercase">Win Rate</span>
-                      <span className="text-green-400 text-xs">▲ 2.4%</span>
+                      <span className="text-gray-400 text-[10px] lg:text-xs font-bold uppercase">Win Rate</span>
+                      <span className="text-green-400 text-[10px] lg:text-xs">▲ 2.4%</span>
                    </div>
-                   <div className="text-3xl font-extrabold text-white">94%</div>
+                   <div className="text-2xl lg:text-3xl font-extrabold text-white">94%</div>
                    <div className="h-1 w-full bg-gray-700 mt-2 rounded-full overflow-hidden">
                       <div className="h-full bg-green-400 w-[94%]" />
                    </div>
@@ -225,15 +225,15 @@ const Hero = ({ onJoinClick }) => {
                 <motion.div 
                    animate={{ y: [0, 12, 0] }}
                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                   className="absolute bottom-12 -left-8 glass-card p-4 rounded-xl border-l-4 border-l-cyan-400 bg-black/80 backdrop-blur-xl shadow-2xl min-w-[200px]"
+                   className="absolute bottom-4 left-4 lg:bottom-12 lg:-left-8 glass-card p-4 rounded-xl border-l-4 border-l-cyan-400 bg-black/80 backdrop-blur-xl shadow-2xl min-w-[160px] lg:min-w-[200px]"
                 >
                    <div className="flex items-center gap-3 mb-2">
                        <div className="w-8 h-8 rounded-full bg-cyan-900/50 flex items-center justify-center text-cyan-400">
                           ⚡
                        </div>
                        <div>
-                          <div className="text-xs text-gray-400 font-bold uppercase">Strategy</div>
-                          <div className="text-white font-bold">Delta Neutral</div>
+                          <div className="text-[10px] lg:text-xs text-gray-400 font-bold uppercase">Strategy</div>
+                          <div className="text-sm lg:text-base text-white font-bold">Delta Neutral</div>
                        </div>
                    </div>
                    <div className="text-[10px] text-gray-500 mt-1">
